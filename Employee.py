@@ -21,13 +21,14 @@ def Check_Attendance():
 #Calculating the wage of the employee and partimers
 def calculate_wage():
     attendance = Check_Attendance()
-    if attendance == 1:
-        wage = 20 * 8
-        print(f"Wage of the Employee is: {wage}")
-    elif attendance == 2:
-        wage = 20 * 4
-        print(f"Wage of the Partime Employee is: {wage}")
-    else:
-        print("Wage of the Employee is: 0")
+    match attendance:
+        case 1:
+            wage = 20 * 8
+            print(f"Wage of the Employee is: {wage}")
+        case 2:
+            wage = 20 * 4
+            print(f"Wage of the Partime Employee is: {wage}")
+        case _:
+            print("Wage of the Employee is: 0")
 
 calculate_wage()
