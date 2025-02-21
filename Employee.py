@@ -18,13 +18,16 @@ def Check_Attendance():
         print("Partime Employee is Present")
     return attendace
 
-#Calculating the wage of the employee
+#Calculating the wage of the employee and partimers
 def calculate_wage():
     attendance = Check_Attendance()
     if attendance == 1:
         wage = 20 * 8
         print(f"Wage of the Employee is: {wage}")
+    elif attendance == 2:
+        wage = 20 * 4
+        print(f"Wage of the Partime Employee is: {wage}")
     else:
-        print("Since Employee is Absent so no wage is given")
+        print("Wage of the Employee is: 0")
 
 calculate_wage()
