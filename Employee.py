@@ -9,7 +9,7 @@ print("-------------------------------WELCOME TO EMPLOYEE WAGE COMPUTATION------
 
 #Function to check the attendance of the employee and partimers
 def Check_Attendance():
-    attendace = random.randint(0,1,2)
+    attendace = random.randint(0,2)
     if attendace == 0:
         print("Employee is Absent")
     elif attendace == 1:
