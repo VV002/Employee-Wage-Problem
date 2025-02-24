@@ -21,13 +21,19 @@ def Check_Attendance():
 #Calculating the wage of the employee and partimers
 def calculate_wage():
     attendance = Check_Attendance()
+    month_days=20
+    pay_per_hour=20
     match attendance:
         case 1:
-            wage = 20 * 8
-            print(f"Wage of the Employee is: {wage}")
+            hours = 8
+            wage = hours * pay_per_hour
+            monthly_wage = wage * month_days
+            print(f"Wage of the Employee for the day is: {wage} and his/her's monthly wage is: {monthly_wage}")
         case 2:
-            wage = 20 * 4
-            print(f"Wage of the Partime Employee is: {wage}")
+            hours = 4
+            wage = hours * pay_per_hour
+            monthly_wage = wage * month_days
+            print(f"Wage of the Partime Employee for the day is: {wage} and his/her's monthly wage is: {monthly_wage}")
         case _:
             print("Wage of the Employee is: 0")
 
