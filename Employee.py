@@ -9,26 +9,47 @@ print("-------------------------------WELCOME TO EMPLOYEE WAGE COMPUTATION------
 
 #Function to check the attendance of the employee and partimers
 def Check_Attendance():
-    attendace = random.randint(0,2)
-    if attendace == 0:
-        print("Employee is Absent")
-    elif attendace == 1:
-        print("Regular Employee is Present")
-    else:
-        print("Partime Employee is Present")
-    return attendace
+    return random.randint(0,2)
+
+#Function to print the wage of the employee and partimers
+def print_wage(eh,ed,ew,ph,pd,pw,ad,td,th):
+    print(f"Total days worked: {td} and Total hours worked: {th}")
+    print(f"Employee worked for {ed} days and {eh} hours and earned ${ew}")
+    print(f"Partimer worked for {pd} days and {ph} hours and earned ${pw}")
+    print(f"Employee was absent for {ad} days")
 
 #Calculating the wage of the employee and partimers
 def calculate_wage():
-    attendance = Check_Attendance()
-    match attendance:
-        case 1:
-            wage = 20 * 8
-            print(f"Wage of the Employee is: {wage}")
-        case 2:
-            wage = 20 * 4
-            print(f"Wage of the Partime Employee is: {wage}")
-        case _:
-            print("Wage of the Employee is: 0")
+    emp_hours, emp_wage,emp_days = 0,0,0
+    partime_days, partime_hours, partime_wage = 0,0,0
+    absent_days = 0
+    total_hours = 0
+    total_days = 0
+    max_hours=100
+    max_days=20
+    while total_hours < max_hours and total_days < max_days:
+        attendance = Check_Attendance()
+        if attendance==1:
+            hours = 8
+            wage = hours * 20
+            emp_wage+=wage
+            emp_hours+=hours
+            emp_days+=1
+            total_days+=1
+            total_hours+=hours
+
+        elif attendance==2:
+            hours = 4
+            wage = hours * 20
+            partime_wage+=wage
+            partime_hours+=hours
+            partime_days+=1
+            total_days+=1
+            total_hours+=hours
+            
+        else:
+            total_days+=1
+            absent_days+=1
+    print_wage(emp_hours,emp_days,emp_wage,partime_hours,partime_days,partime_wage,absent_days,total_days,total_hours)        
 
 calculate_wage()
